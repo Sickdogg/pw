@@ -8,8 +8,12 @@
   </head>
   <body>
     <button onclick="subscribe()">Subscribe</button>
-
+    <textarea id="text">顯示內容</textarea>
     <script>
+      let textarea = document.getElementById("myTextarea");
+      
+      let output = document.getElementById("output");
+
       async function subscribe() {
         let sw = await navigator.serviceWorker.ready;
         let push = await sw.pushManager.subscribe({
@@ -18,6 +22,7 @@
             'BJPF55xXgi7kpNPjtwwRDLJIMCM6dc4haVL-FYYwui4obFPf5f7_Z8Zr1Zsu1vxAVnIfdKLeVIaoDce5cFQjCAM'
         });
         console.log(JSON.stringify(push));
+        textarea.value = JSON.stringify(push);
       }
 
       if ('serviceWorker' in navigator) {
