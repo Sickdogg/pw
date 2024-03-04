@@ -19,12 +19,12 @@ webpush.setVapidDetails(
 // This is the same output of calling JSON.stringify on a PushSubscription
 const pushSubscription = {
   endpoint:
-    "https://wns2-ln2p.notify.windows.com/w/?token=BQYAAADkfTz9gDwoeJ4%2f0ZA2WbgUfdxfURhQnnGRYiCoaM9tVoi5xVAo4hsAXq55jlxBeK4JEwzdKqdxVIS7tZYBp5dLqapJRL41P5jDrFQtAOaf%2fbXWFRz5hQPcYP2b9QRN4U3etCBsZcHODb53tDcNbhuEIkmTA6k6Oj2W46D3BQ%2bx4wtv3EW6HFk8WuK8Sg%2btaXVEeXCAioUAIUTmbaz4rCsVP7VPG%2bhovKjgea2IVA7j15U7XlMcJtwTo26YS%2bX65WQf%2bLQlgpXws4O8E1cccQCLr3fzUXrJBc1qTbTS9Avd9BALgFcX29bDCp7MqiGpbsIZN%2fKHjelC6b39Ug78uB1W",
+    "https://fcm.googleapis.com/fcm/send/dBSLv023_TM:APA91bHmMaFstmw_0bya7clpWGRwK5C1tTgQGGY6sdqla3THIi7iLgrRCtNxj6qoo2u2eFtBH5IVmKkNVXxFcMm6fvunuy-o83o9-yNXoXQ9GqliJItPXRJKL1O77hDH1e5lgh2Ffuag",
   expirationTime: null,
   keys: {
     p256dh:
-      "BFDtBwFczbV27GJtZLiHlifPv5MRwjwHkBiY75WRjXnQeiU_uRb7t11Fq0Vmn00QXIW9KT5uKQ5g2D6I1kCTx6g",
-    auth: "uVjWowi00JahOR4PXIP-7g",
+      "BBUgtWu0aAIjvRAi0ohCl6JFpKwjqOQC7P4Hnua9B0wsXGefh5GdPnV3HwzQhx-70IMQ2kLBb8e6fvXk3woQDpc",
+    auth: "q_rv-AovxwEzmAzUjFA5pg",
   },
 };
 
