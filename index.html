@@ -10,9 +10,14 @@
   <body>
     <button onclick="subscribe()">Subscribe</button>
     <textarea id="text">顯示內容</textarea>
+    <button id="addHome" style="display:none;">安裝到主畫面</button>
+  
     <script>
+      let addHome = document.getElementById("addHome");
+      let deferredPrompt;
+
       let textarea = document.getElementById("text");
-      
+
       let output = document.getElementById("output");
 
       async function subscribe() {
@@ -20,18 +25,51 @@
         let push = await sw.pushManager.subscribe({
           userVisibleOnly: true,
           applicationServerKey:
-            'BJPF55xXgi7kpNPjtwwRDLJIMCM6dc4haVL-FYYwui4obFPf5f7_Z8Zr1Zsu1vxAVnIfdKLeVIaoDce5cFQjCAM'
+            "BJPF55xXgi7kpNPjtwwRDLJIMCM6dc4haVL-FYYwui4obFPf5f7_Z8Zr1Zsu1vxAVnIfdKLeVIaoDce5cFQjCAM",
         });
         console.log(JSON.stringify(push));
         textarea.value = JSON.stringify(push);
       }
 
-      if ('serviceWorker' in navigator) {
-        addEventListener('load', async () => {
-          let sw = await navigator.serviceWorker.register('./sw.js');
+      if ("serviceWorker" in navigator) {
+        addEventListener("load", async () => {
+          let sw = await navigator.serviceWorker.register("./sw.js");
           console.log(sw);
         });
       }
+
+      window.addEventListener("beforeinstallprompt", (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        deferredPrompt = e;
+        console.log("偵測到沒有安裝pwa");
+        // // Stash the event so it can be triggered later.
+        // deferredPrompt = e;
+        // // Update UI notify the user they can add to home screen
+        addHome.style.display = "block";
+      });
+
+      addHome.addEventListener("click", (e) => {
+        console.log('click',e);
+        // // hide our user interface that shows our A2HS button
+        // btnAdd.style.display = "none";
+        // // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === "accepted") {
+            console.log("User accepted the A2HS prompt");
+          } else {
+            console.log("User dismissed the A2HS prompt");
+          }
+          deferredPrompt = null;
+        });
+      });
+
+      window.addEventListener("appinstalled", (evt) => {
+        console.log("已經安裝pwa");
+        addHome.style.display = "none"
+      });
     </script>
   </body>
 </html>

@@ -28,5 +28,9 @@
   ],
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "related_applications": [{
+    "platform": "PWAapp",
+    "url": "https://app.example.com/manifest.json"
+  }]
 }
