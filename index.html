@@ -10,7 +10,7 @@
   <body>
     <button onclick="subscribe()">Subscribe</button>
     <textarea id="text">顯示內容</textarea>
-    <button id="addHome">安裝到主畫面</button>
+    <button id="addHome" style="display: none;">安裝到主畫面</button>
   
     <script>
       let addHome = document.getElementById("addHome");
@@ -47,6 +47,7 @@
         // deferredPrompt = e;
         // // Update UI notify the user they can add to home screen
         addHome.style.display = "block";
+        alert('觸發沒有安裝PWA');
       });
 
       addHome.addEventListener("click", (e) => {
@@ -70,6 +71,13 @@
         console.log("已經安裝pwa");
         addHome.style.display = "none"
       });
+
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+    // do things here
+    // set a variable to be used when calling something
+    // e.g. call Google Analytics to track standalone use
+    console.log("窗口獨立");
+}
     </script>
   </body>
 </html>
