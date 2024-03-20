@@ -1,6 +1,9 @@
 {
   "name": "Vite Svelte PWA",
   "short_name": "vite-svelte-pwa",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
   "scope": "/",
   "start_url": ".",
   "icons": [
@@ -25,12 +28,6 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone",
-  "related_applications": [{
-    "platform": "PWAapp",
-    "url": "https://app.example.com/manifest.json"
-  }]
+  ]
+  
 }
