@@ -70,6 +70,7 @@
       window.addEventListener("appinstalled", (evt) => {
         console.log("已經安裝pwa");
         addHome.style.display = "none"
+        alert('安裝完畢')
       });
 
       if (window.matchMedia('(display-mode: standalone)').matches) {
