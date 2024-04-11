@@ -42,6 +42,7 @@
         // Prevent Chrome 67 and earlier from automatically showing the prompt
         e.preventDefault();
         deferredPrompt = e;
+        window.install = e;
         console.log("偵測到沒有安裝pwa");
         // // Stash the event so it can be triggered later.
         // deferredPrompt = e;
@@ -77,7 +78,9 @@
     // do things here
     // set a variable to be used when calling something
     // e.g. call Google Analytics to track standalone use
-    console.log("窗口獨立");
+    console.log("pwa視窗");
+}else {
+  console.log("不是 pwa視窗");
 }
     </script>
   </body>
